@@ -1,0 +1,6 @@
+@EFCoreModelBuilder_HostAddress = http://localhost:5124
+
+GET {{EFCoreModelBuilder_HostAddress}}/
+Accept: application/json
+
+###
