@@ -25,7 +25,7 @@ app.MapGet("/", (AppDbContext context) =>
     }
     catch
     {
-        //Use 'Docker compose' and 'EFCore-Migrations' to create a local SqlServer-Database
+        //Prerequisite: Use 'Docker compose' and 'EFCore-Migrations' to create a local SqlServer-Database
         return Results.BadRequest(DockerAndMigrationInfo.Info);
     }
 });
