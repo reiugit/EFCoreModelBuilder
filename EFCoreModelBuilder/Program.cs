@@ -20,20 +20,13 @@ app.MapGet("/", (AppDbContext context) =>
     {
         var aProduct = context.AProducts.FirstOrDefault();
         var bProduct = context.Set<BProduct>().FirstOrDefault();
+
         return Results.Ok(new { AProduct = aProduct, BProduct = bProduct });
     }
     catch
     {
-        //use 'docker compose up' to create a local SqlServer-Database
-        return Results.BadRequest(new
-        {
-            Info = " This application needs a local SqlServer-Database. ",
-            _ = "",
-            Todo1 = " 1.) Use  'DOCKER compose up --detach'  to create a local SqlServer instance. ",
-            Todo2 = " 2.) Use  'EFCore Migrations' to create a valid database: ",
-            Todo3 = " -- with  'ef migrations database update'  in EFCore Tools ",
-            Todo4 = " -- or  'update-database'  in the Package Manager Console ",
-        });
+        //Use 'Docker compose' and 'EFCore-Migrations' to create a local SqlServer-Database
+        return Results.BadRequest(DockerAndMigrationInfo.Info);
     }
 });
 
