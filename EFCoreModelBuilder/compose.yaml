@@ -7,10 +7,10 @@ services:
     ports:
       - "1433:1433"
     volumes:
-      - dbdata:/var/opt/mssql
+      - sqlserver-data:/var/opt/mssql
 
 volumes:
-  dbdata:
-    name: sql-data
+  sqlserver-data:
+    name: sqlserver-data
 
 
